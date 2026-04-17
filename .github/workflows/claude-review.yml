@@ -46,4 +46,4 @@ jobs:
             6. **Commit messages.** Subject lowercase imperative, body explains why. No `Co-Authored-By: Claude` footers.
 
             Post inline comments on specific problematic lines. Leave one summary review comment at the end. If the in-scope changes pass, say so — don't invent problems.
-          claude_args: "--max-turns 10"
+          claude_args: "--max-turns 30"
