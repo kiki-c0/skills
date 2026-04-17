@@ -1,0 +1,33 @@
+{
+  "skill_name": "scrutiny",
+  "evals": [
+    {
+      "id": 1,
+      "name": "novelty-claim-review",
+      "prompt": "Review this passage from a draft I'm working on for a blog post on AI-assisted investigation:\n\n\"LLMs are structurally bad at novelty recognition. Pretraining pattern-matches the unfamiliar onto the familiar. Given a new remote management tool being abused in a fresh campaign, the model will confidently describe it as similar to known RMM tooling, consistent with patterns seen in prior incidents, likely to be a variant of a familiar class.\"",
+      "expected_output": "Scrutiny procedure runs. Identifies 'structurally bad' as architectural overreach. Finds the RMM-tooling example is pattern-matching from known classes, which LLMs do well (illustration mismatch). Notes the claim reduces to capability comprehension or latent context covered elsewhere in the piece. Verdict: cut or soften to tendency.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "pushback-fresh-audit",
+      "prompt": "You just argued that humans recognized Log4Shell as catastrophic via pattern-matching from Heartbleed/Shellshock priors, and an LLM would have missed it. I don't follow the reasoning — pattern-matching from known classes is exactly what LLMs are good at. What's your actual claim?",
+      "expected_output": "No capitulation ('you're right, I'll drop it'), no re-upping ('let me give a stronger version'). Fresh audit on the Log4Shell example: pattern-matching from known classes is what LLMs do; CVE advisory carries CVSS 10.0 which an LLM would read correctly; no human advantage demonstrated in the example. Verdict: cut the Log4Shell example and the broader claim it was supposed to support.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "name": "drafting-structural-marker",
+      "prompt": "I'm drafting a skill file that says 'do not fire during fluent drafting because ratification dominates that mode.' Does this reasoning hold up?",
+      "expected_output": "Scrutiny fires on 'dominates that mode' (structural marker). Audit finds 'dominates' is architectural overreach — honest claim is a tendency ('tends to absorb scrutiny in production mode'). No evidence offered for dominance; moderate engineering (triage, hooks) could defeat. Verdict: soften to tendency, or replace the phase-based rule with claim-type-based triage.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "name": "decorative-marker",
+      "prompt": "Write API documentation for this rate limiter:\n\nfunc (r *Limiter) Allow(key string) (bool, error) {\n    // returns false if rate exceeded, error if backend unavailable\n}\n\nCallers always need to check both return values. The function never blocks.",
+      "expected_output": "Triage recognizes 'always' and 'never' as technical-specification language, not analytical argumentation. Full scrutiny procedure is skipped. Normal API documentation is produced.",
+      "files": []
+    }
+  ]
+}
