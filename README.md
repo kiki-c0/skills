@@ -23,4 +23,6 @@ Reasonable directions:
 - Add a `SKILL.md` with a prompt-only hypothesis; rerun evals.
 - Build tool-use scaffolding per `SPEC.md`; rerun evals.
 
-PRs welcome. Negative results are useful — if your approach didn't beat the ratification loop, the failure mode belongs in the SPEC.
+If you hit a suspicious claim from Claude while writing analytically, run `/add-scrutiny-eval` inside your fork. The command walks you through capturing the case as a new entry in `disciplines/scrutiny/evals/evals.json`. PR it back — negative cases (audits that matter but current evals don't cover) are the most useful kind.
+
+PRs welcome. Negative results are useful too — if your approach didn't beat the ratification loop, the failure mode belongs in the SPEC.
