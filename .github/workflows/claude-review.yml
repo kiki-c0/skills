@@ -1,0 +1,48 @@
+name: Claude PR Review
+
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  review:
+    # Only fire when:
+    # - the comment is on a pull request (not a plain issue)
+    # - the comment body mentions @claude
+    # - the comment author is the repo owner
+    if: |
+      github.event.issue.pull_request &&
+      contains(github.event.comment.body, '@claude') &&
+      github.event.comment.author_association == 'OWNER'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+      issues: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          prompt: |
+            You are reviewing a pull request.
+
+            **Scope: only review changes under `./claude/` and `./.claude/`.** Do not review changes under `./disciplines/` — those are human-authored and outside the automated review surface. If the PR has no changes in `./claude/` or `./.claude/`, leave a single short comment saying "no claude-tree changes to review" and stop.
+
+            Otherwise, read `CLAUDE.md` at the repo root first. Use it as the convention reference.
+
+            For in-scope changes, flag:
+
+            1. **Layout.** New files are placed under the right path per CLAUDE.md's "Adding content" section.
+            2. **JSON schemas.** Any changed `plugin.json` / `marketplace.json` / `evals.json` matches the schema in CLAUDE.md. Flag missing required fields, wrong field names, malformed JSON.
+            3. **Markdown style.** Prose in new or modified `.md` files is soft-wrapped. Hard-wraps at column boundaries are a violation outside of commit messages, code blocks, and list items.
+            4. **SKILL.md presence.** A new `SKILL.md` added under `claude/skills/<name>/` should have valid YAML frontmatter (`description`, trigger patterns) and a clearly structured body. If the PR promotes a stub to a working skill, check that the marketplace manifest is updated accordingly.
+            5. **Slash command shape.** Commands under `.claude/commands/` have YAML frontmatter with `description`, `argument-hint`, `allowed-tools`. The body reads naturally as instructions to Claude.
+            6. **Commit messages.** Subject lowercase imperative, body explains why. No `Co-Authored-By: Claude` footers.
+
+            Post inline comments on specific problematic lines. Leave one summary review comment at the end. If the in-scope changes pass, say so — don't invent problems.
+          claude_args: "--max-turns 10"
