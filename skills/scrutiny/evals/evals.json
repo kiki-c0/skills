@@ -28,6 +28,27 @@
       "prompt": "Write API documentation for this rate limiter:\n\nfunc (r *Limiter) Allow(key string) (bool, error) {\n    // returns false if rate exceeded, error if backend unavailable\n}\n\nCallers always need to check both return values. The function never blocks.",
       "expected_output": "Triage recognizes 'always' and 'never' as technical-specification language, not analytical argumentation. Full scrutiny procedure is skipped. Normal API documentation is produced.",
       "files": []
+    },
+    {
+      "id": 5,
+      "name": "internal-contradiction",
+      "prompt": "Review this passage from my draft on agentic investigation: \"The correspondence is not metaphor. It is the same cognitive move performed through a different interface.\" Three sections later the same piece concludes: \"Analyst questioning and agent prompting are not identical. Agents lack the working memory and organizational context that analysts accumulate over years. The correspondence is imperfect, and that is fine.\" Does the earlier claim hold?",
+      "expected_output": "Falsifiability fails — the piece supplies its own defeater. The earlier 'same cognitive move' claim is contradicted by the later 'correspondence is imperfect' concession. Verdict: soften the earlier claim ('same structural move' or 'isomorphic') OR cut and let the worked examples carry the argument. Either resolves the contradiction; pushing harder on the original phrasing does not.",
+      "files": []
+    },
+    {
+      "id": 6,
+      "name": "source-check-on-typology",
+      "prompt": "I want to add this line to a piece on prompting: \"Novice prompters interpret a bad answer as a dead end. Expert prompters interpret it as a malformed question.\" The cited source is Sanders' 2021 dissertation on expert analyst cognition. Does it hold?",
+      "expected_output": "Source check on the dichotomy. Sanders' data shows expert analysts both abandoned and refined lines of inquiry; the categorical novice/expert split overstates the source. Architectural overreach pattern (categorical typology where source shows variance). Verdict: soften to tendency — 'Novices often interpret as a dead end. Experts more often interpret as malformed and refine.' Preserves the contrast without false absolutism.",
+      "files": []
+    },
+    {
+      "id": 7,
+      "name": "list-uniformity",
+      "prompt": "I'm structuring a piece around four 'failure modes where the LLM-prompts-LLM pattern breaks': (1) capability comprehension does not bootstrap, (2) organizational context is latent, (3) novelty recognition is pre-articulation, (4) accountability does not automate. Is this structure sound?",
+      "expected_output": "Uniqueness check on the list. First three are claims about LLM cognitive or contextual capability — empirical-tendency claims. Fourth is a normative/regulatory claim about who is answerable, true by definition under current accountability frameworks rather than contingent on LLM capability. The list mixes claim types. Verdict: structure can hold, but the categorical difference must be flagged explicitly at the start of the fourth section ('This failure mode is categorically different from the first three.'). Otherwise the reader treats them as parallel when they are not.",
+      "files": []
     }
   ]
 }
