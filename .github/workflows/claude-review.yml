@@ -22,11 +22,11 @@ jobs:
       id-token: write
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd  # v5.0.1
         with:
           fetch-depth: 0
 
-      - uses: anthropics/claude-code-action@v1
+      - uses: anthropics/claude-code-action@c3d45e8e941e1b2ad7b278c57482d9c5bf1f35b3  # v1.0.99
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           prompt: |
@@ -46,4 +46,4 @@ jobs:
             6. **Commit messages.** Subject lowercase imperative, body explains why. No `Co-Authored-By: Claude` footers.
 
             Post inline comments on specific problematic lines. Leave one summary review comment at the end. If the in-scope changes pass, say so — don't invent problems.
-          claude_args: "--max-turns 10"
+          claude_args: "--max-turns 30"
