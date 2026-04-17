@@ -1,0 +1,12 @@
+{
+  "name": "kiki-c0-skills",
+  "owner": { "name": "kiki" },
+  "plugins": [
+    {
+      "name": "scrutiny",
+      "source": "./skills/scrutiny",
+      "description": "Discipline for pressure-testing load-bearing claims in analytical writing. Human-facing; see skills/scrutiny/README.md.",
+      "version": "0.1.0"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "name": "scrutiny",
+  "version": "0.1.0",
+  "description": "Discipline for pressure-testing load-bearing claims in analytical writing.",
+  "author": { "name": "kiki" },
+  "license": "MIT"
+}
