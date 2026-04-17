@@ -46,4 +46,8 @@ jobs:
             6. **Commit messages.** Subject lowercase imperative, body explains why. No `Co-Authored-By: Claude` footers.
 
             Post inline comments on specific problematic lines. Leave one summary review comment at the end. If the in-scope changes pass, say so — don't invent problems.
-          claude_args: "--max-turns 30"
+          # --allowed-tools grants permission to the specific tools the review
+          # needs, overriding the repo's .claude/settings.json ask/deny rules
+          # in the CI context. Principle-of-least-privilege: enumerate what's
+          # needed, don't --dangerously-skip-permissions the whole session.
+          claude_args: '--max-turns 30 --allowed-tools "Bash(gh pr comment:*),Bash(gh pr diff:*),Bash(gh pr view:*),Bash(gh pr list:*),Bash(git diff:*),Bash(git log:*),Bash(git show:*)"'
