@@ -65,7 +65,7 @@ A two-track skills repo published to the Claude Code marketplace.
 ## PR workflow
 
 - `main` is protected: require PR, 1 approval, no force-push, no deletion, conversation resolution required. Admin bypass enabled for the owner.
-- Prefer fast-forward merges to keep linear history (precedent: PR #2). For orphan-branch rewrites, merge with `-s ours` first so `main` becomes an ancestor (precedent: PR #1).
+- For orphan-branch rewrites, merge with `-s ours` first so `main` becomes an ancestor (precedent: PR #1).
 - Commit subjects: lowercase, imperative, scoped with `<area>:` when useful.
 - Commit bodies: explain WHY.
 
