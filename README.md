@@ -5,9 +5,13 @@ A skills repo with two tracks:
 - `./disciplines/` — unsolved-for-Claude disciplines, shipped as human-facing collateral (README + SPEC + evals). No `SKILL.md`, by design.
 - `./claude/skills/` — functional Claude skills, or stubs targeting a future functional version.
 
-## Available skills
+## Available disciplines
 
 - [scrutiny](disciplines/scrutiny/README.md) — pressure-test load-bearing claims in analytical writing.
+
+## Commands
+
+- `/add-scrutiny-eval` — capture a suspicious Claude claim you encountered in analytical writing as a new entry in `disciplines/scrutiny/evals/evals.json`. Available when you open the repo in Claude Code.
 
 ## Forking this repo
 
