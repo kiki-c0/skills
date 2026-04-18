@@ -57,6 +57,6 @@ Rejected alternative: gating by drafting phase ("don't fire during fluent drafti
 
 Apply scrutiny to the teeth before deploying them.
 
-- **Example-survival:** see `evals/evals.json` — four prompts lifted from the session that produced this folder, each with an audit the human scrutineer performed manually. The teeth work if the skill reproduces those audits.
+- **Example-survival:** see `evals/evals.json` — seven prompts lifted from the session that produced this folder, each with an audit the human scrutineer performed manually. The teeth work if the skill reproduces those audits.
 - **Uniqueness:** does this add behavior the README does not already produce through the human? If the human is scrutineering anyway, the teeth are decorative.
 - **Falsifiability:** name what would show the teeth do not work. The strongest failure mode lives in eval 2 (pushback → fresh audit): if the skill capitulates ("you're right, let me try again") instead of producing the independent verdict the human produced, prompt-only has no traction on the ratification loop and tool-use scaffolding is the next step.
